@@ -67,20 +67,21 @@ export class SpotifyService {
   }
 
   getAlbum(albumId:string):Promise<AlbumData> {
-    //TODO: use the album endpoint to make a request to express.
+
     return this.sendRequestToExpress("/album/" + encodeURIComponent(albumId)).then(
       (data) => new AlbumData(data)
     );
   }
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
-    //TODO: use the tracks for album endpoint to make a request to express.
+
     return this.sendRequestToExpress("/album-tracks/" + encodeURIComponent(albumId)).then(
       (data) => data.tracks.map((a) => new TrackData(a))
     );
   }
 
   getTrack(trackId:string):Promise<TrackData> {
+    
     return this.sendRequestToExpress("/track/" + encodeURIComponent(trackId)).then(
       (data) => new TrackData(data)
     );
