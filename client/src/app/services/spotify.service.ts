@@ -18,6 +18,8 @@ export class SpotifyService {
   private sendRequestToExpress(endpoint:string):Promise<any> {
     var uri:string = this.expressBaseUrl + endpoint;
 
+    //firstValueFrom generates a Promise for whatever is returned first from the GET request.
+    //You shouldn't need to update this part.
     return firstValueFrom(this.http.get(uri)).then((response) => {
       return response;
     }, (err) => {
